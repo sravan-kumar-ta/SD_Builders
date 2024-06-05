@@ -38,10 +38,13 @@ Author: GrayGrids
 
         // show or hide the back-top-top button
         var backToTo = document.querySelector(".scroll-top");
+        var whatsapp = document.querySelector("#whatsapp");
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             backToTo.style.display = "flex";
+            whatsapp.style.bottom = "100px";
         } else {
             backToTo.style.display = "none";
+            whatsapp.style.bottom = "30px";
         }
     };
 
