@@ -1,5 +1,5 @@
 .bg-video-area {
-    background: url(../images/video_bg.jpeg) no-repeat fixed 0 0/cover;
+    background: url(../images/scroll_bg/video_bg.jpeg) no-repeat fixed 0 0/cover;
     position: relative;
     z-index: 1
 }
