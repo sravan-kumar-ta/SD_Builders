@@ -1,0 +1,30 @@
+.bg-video-area {
+    background: url(../images/video_bg.jpeg) no-repeat fixed 0 0/cover;
+    position: relative;
+    z-index: 1
+}
+
+.bg-video-area:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: rgba(26, 26, 26, 0.9) none repeat scroll 0 0;
+    opacity: 0.75;
+}
+
+.video-container {
+    text-align: center;
+}
+
+.video-container h2 {
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 15px;
+    line-height: 52px;
+}
