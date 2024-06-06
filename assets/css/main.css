@@ -1214,11 +1214,11 @@ ol {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 22px;
   color: #fff !important;
   position: fixed;
@@ -1231,12 +1231,13 @@ ol {
   border-radius: 50%;
 }
 
-.scroll-top:hover {
-  -webkit-transform: scale(1.08);
-          transform: scale(1.08);
-  background-color: var(--bs-primary);
+@media only screen and (min-width: 992px) {
+  .scroll-top:hover {
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+    background-color: var(--bs-primary);
+  }
 }
-
 /* Overlay */
 .overlay {
   position: relative;
