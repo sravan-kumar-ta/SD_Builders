@@ -51,9 +51,22 @@ Author: GrayGrids
 
     //===== mobile-menu-btn
     let navbarToggler = document.querySelector(".mobile-menu-btn");
+    let navbarMenu = document.querySelector("#navbarSupportedContent");
+    let navLinks = document.querySelectorAll("#nav .nav-item a");
+    
     navbarToggler.addEventListener('click', function () {
         navbarToggler.classList.toggle("active");
     });
-
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            // Check if the navbar is expanded
+            if (navbarToggler.classList.contains("active")) {
+                // Collapse the navbar
+                navbarToggler.classList.remove("active");
+                navbarMenu.classList.remove("show");
+            }
+        });
+    });
 
 })();
