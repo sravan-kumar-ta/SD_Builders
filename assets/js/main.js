@@ -1,5 +1,5 @@
 (function () {
-    //===== Prealoder
+    /*=============== PRELOADER ===============*/
     window.onload = function () {
         window.setTimeout(fadeout, 500);
     }
@@ -9,65 +9,60 @@
         document.querySelector('.preloader').style.display = 'none';
     }
 
-    
-    // WOW active
+    /*=============== WOW ACTIVE ===============*/
     new WOW().init();
 
-
-    /*=====================================
-    Sticky
-    ======================================= */
+    /*=============== STICKY NAVBAR and BACK-TO-TOP BUTTON ===============*/
     window.onscroll = function () {
-        var header_navbar = document.querySelector(".navbar-area");
-        var sticky = header_navbar.offsetTop;
+        const headerNavbar = document.querySelector(".navbar-area");
+        const logo = document.querySelector('.navbar-brand img');
+        const backToTop = document.querySelector(".scroll-top");
+        const whatsapp = document.querySelector("#whatsapp");
 
-        var logo = document.querySelector('.navbar-brand img')
-        if (window.pageYOffset > sticky) {
-          header_navbar.classList.add("sticky");
-          logo.src = 'assets/images/logo/logo.svg';
-        } else {
-          header_navbar.classList.remove("sticky");
-          logo.src = 'assets/images/logo/white-logo.svg';
+        if (headerNavbar) {
+            const sticky = headerNavbar.offsetTop;
+            if (window.pageYOffset > sticky) {
+                headerNavbar.classList.add("sticky");
+                if (logo) logo.src = 'assets/images/logo/logo.svg';
+            } else {
+                headerNavbar.classList.remove("sticky");
+                if (logo) logo.src = 'assets/images/logo/white-logo.svg';
+            }
         }
 
-        // show or hide the back-top-top button
-        var backToTo = document.querySelector(".scroll-top");
-        var whatsapp = document.querySelector("#whatsapp");
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            backToTo.style.display = "flex";
-            whatsapp.style.bottom = "100px";
-        } else {
-            backToTo.style.display = "none";
-            whatsapp.style.bottom = "30px";
+        if (backToTop && whatsapp) {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                backToTop.style.display = "flex";
+                whatsapp.style.bottom = "100px";
+            } else {
+                backToTop.style.display = "none";
+                whatsapp.style.bottom = "30px";
+            }
         }
     };
 
     /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
     const sections = document.querySelectorAll('section[id]');
-
-    const scrollActive = () =>{
-        const scrollDown = window.scrollY
-
+    window.addEventListener('scroll', function () {
+        const scrollY = window.scrollY;
         sections.forEach(current => {
-            const sectionHeight = current.offsetHeight,
-                sectionTop = current.offsetTop - 58,
-                sectionId = current.getAttribute('id'),
-                sectionClass = document.querySelector('.navbar-nav a[href*=' + sectionId + ']')
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 58;
+            const sectionId = current.getAttribute('id');
+            const sectionClass = document.querySelector('.navbar-nav a[href*=' + sectionId + ']');
 
-        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-            sectionClass.classList.add('active')
-        }else{
-            sectionClass.classList.remove('active')
-        }
-        })
-    }
-    window.addEventListener('scroll', scrollActive)
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                sectionClass.classList.add('active');
+            } else {
+                sectionClass.classList.remove('active');
+            }
+        });
+    });
 
-
-    //===== mobile-menu-btn
+    /*=============== MOBILE MENU BAR ===============*/
     let navbarToggler = document.querySelector(".mobile-menu-btn");
     let navbarMenu = document.querySelector("#navbarSupportedContent");
-    let navLinks = document.querySelectorAll("#nav .nav-item a");
+    let navLinks = document.querySelectorAll(".nav-link-custom");
     
     navbarToggler.addEventListener('click', function () {
         navbarToggler.classList.toggle("active");
@@ -84,16 +79,24 @@
         });
     });
 
-    // Close the navbar when clicking outside of it
+    /*=============== Close the navbar when clicking outside of it ===============*/
     document.addEventListener('click', function (event) {
         let isClickInsideNavbar = navbarMenu.contains(event.target) || navbarToggler.contains(event.target);
 
-        if (!isClickInsideNavbar) {
-            if (navbarToggler.classList.contains("active")) {
-                navbarToggler.classList.remove("active");
-                navbarMenu.classList.remove("show");
-            }
+        if (!isClickInsideNavbar && navbarToggler.classList.contains("active")) {
+            navbarToggler.classList.remove("active");
+            navbarMenu.classList.remove("show");
         }
     });
 
+    /*=Add overflow-y: scroll; to navbarSupportedContent if screen width <= 991px when clicking on the contact <li>=*/
+    const contactLi = document.querySelector('li.contact');
+
+    if (contactLi) {
+        contactLi.addEventListener('click', function () {
+            if (window.innerWidth <= 991) {
+                navbarMenu.style.overflowY = 'hidden';
+            }
+        });
+    }
 })();
