@@ -458,35 +458,36 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 col-12">
                     <div class="contact-form">
-                        <form class="form" method="post" action="assets/mail/mail.php">
+                        <form class="form" action="" id="contact-form">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Your Name</label>
-                                        <input name="name" type="text" placeholder="Your good name.." required="required">
+                                        <input name="user_name" type="text" placeholder="Your good name.." required="required">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Your Email</label>
-                                        <input name="email" type="email" placeholder="exampla@gmail.com*"
+                                        <input name="user_email" type="email" placeholder="exampla@gmail.com*"
                                             required="required">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Your Subject</label>
-                                        <input name="subject" type="text" placeholder="Type your subject"
+                                        <input name="user_subject" type="text" placeholder="Type your subject"
                                             required="required">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>How can we help you?</label>
-                                        <textarea placeholder="Tell me more about your message" name="message"
+                                        <textarea placeholder="Tell me more about your message" name="user_message"
                                             id="message-area" class="form-control"></textarea>
                                     </div>
                                 </div>
+                                <p id="contact-message"></p>
                                 <div class="col-12">
                                     <div class="button">
                                         <button type="submit" class="btn ">Send Message</button>
@@ -596,6 +597,9 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!--=============== EMAIL JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
 
 </html>
