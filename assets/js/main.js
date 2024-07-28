@@ -23,10 +23,10 @@
             const sticky = headerNavbar.offsetTop;
             if (window.pageYOffset > sticky) {
                 headerNavbar.classList.add("sticky");
-                if (logo) logo.src = 'assets/images/logo/logo.svg';
+                if (logo) logo.src = 'assets/images/logo/sd-logo.svg';
             } else {
                 headerNavbar.classList.remove("sticky");
-                if (logo) logo.src = 'assets/images/logo/white-logo.svg';
+                if (logo) logo.src = 'assets/images/logo/sd-white-logo.svg';
             }
         }
 
