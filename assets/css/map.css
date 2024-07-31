@@ -1,0 +1,59 @@
+.map-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.map-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.map-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .map-btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-btn {
+    font-size: 11px;
+    padding: 5px 8px;
+    top: 10px;  
+    right: 10px;
+  }
+}
+
+/* Media queries for changing the image based on screen width */
+@media (max-width: 1024px) {
+  .map-container img {
+    content: url("../images/map/map-md.jpg");
+  }
+}
+
+@media (min-width: 1025px) {
+  .map-container img {
+    content: url("../images/map/map.jpg");
+  }
+}
